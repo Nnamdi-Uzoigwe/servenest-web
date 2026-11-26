@@ -84,3 +84,45 @@ export interface TechnicianList {
 }
 
 export type TechnicianStats = Record<TechnicianApprovalStatus, number> & { total: number };
+
+export type Weekday =
+  | "monday"
+  | "tuesday"
+  | "wednesday"
+  | "thursday"
+  | "friday"
+  | "saturday"
+  | "sunday";
+
+export interface AvailabilitySlot {
+  day: Weekday;
+  startTime: string;
+  endTime: string;
+}
+
+export interface TechnicianDetail extends TechnicianListItem {
+  bio?: string;
+  weeklyAvailability: AvailabilitySlot[];
+  isAvailable: boolean;
+  rejectionReason?: string;
+  suspensionReason?: string;
+  reviewedBy?: { _id: string; fullName: string; email: string };
+  reviewedAt?: string;
+  ratingAverage: number;
+  ratingCount: number;
+  completedJobsCount: number;
+}
+
+export interface AuditLogItem {
+  _id: string;
+  action: string;
+  actor?: { _id: string; fullName: string; email: string; role: string } | null;
+  actorRole: string;
+  metadata?: { from?: string; to?: string; reason?: string };
+  createdAt: string;
+}
+
+export interface AuditLogList {
+  items: AuditLogItem[];
+  pagination: Pagination;
+}
