@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Placeholder } from "@/components/Placeholder";
+import { requireUser } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Technician review" };
 
@@ -8,6 +9,7 @@ export default async function TechnicianReviewPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireUser();
   const { id } = await params;
 
   return (
