@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<!-- Screenshots to add (into public/screens/, then refresh the page)
+
+Phone screenshots, portrait, PNG, cropped to about 9 : 19.5 (for example 1080 x 2340):
+
+welcome.png: the Welcome screen with the two role slabs. This replaces the drawn copy in the hero.
+customer-intro.png: the first customer intro slide, with the progress lines across the top.
+technician-checklist.png: the technician status screen with the checklist, with an ID and a certificate uploaded.
+
+Browser screenshots, 1440 x 900 window at 100% zoom, PNG:
+4. dashboard-overview.png: the Overview, showing the counts strip and the waiting list.
+5. technician-review.png: a technician review screen with the documents and the Decision panel. -->

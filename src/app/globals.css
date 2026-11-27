@@ -45,6 +45,12 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     background: #fff;
     color: var(--color-body);
@@ -58,5 +64,64 @@
   :focus-visible {
     outline: 2px solid var(--color-ink);
     outline-offset: 2px;
+  }
+}
+
+/* The hero's job track. The normal styles are the finished state, and these animations play in
+   from the empty state, one stop after another. Reduced motion skips straight to the finished state. */
+@keyframes track-dot {
+  from {
+    background-color: transparent;
+    border-color: var(--color-ink-lift);
+  }
+  60% {
+    transform: scale(1.35);
+  }
+}
+
+@keyframes track-label {
+  from {
+    color: rgb(248 231 201 / 0.45);
+  }
+}
+
+@keyframes track-line {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes track-line-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+.job-dot {
+  animation: track-dot 0.5s ease-out both;
+  animation-delay: calc(var(--i) * 0.9s + 0.6s);
+}
+
+.job-label {
+  animation: track-label 0.5s ease-out both;
+  animation-delay: calc(var(--i) * 0.9s + 0.6s);
+}
+
+.job-line {
+  animation: track-line 0.6s ease-out both;
+  animation-delay: calc(var(--i) * 0.9s + 1s);
+}
+
+.job-line-y {
+  animation: track-line-y 0.6s ease-out both;
+  animation-delay: calc(var(--i) * 0.9s + 1s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-dot,
+  .job-label,
+  .job-line,
+  .job-line-y {
+    animation: none;
   }
 }
